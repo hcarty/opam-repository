@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "Hezekiah M. Carty <hez@0ok.org>"
+authors: [ "Hezekiah M. Carty <hez@0ok.org>" ]
+license: "MIT"
+synopsis: "Simple gzip (de)compression library"
+homepage: "https://github.com/hcarty/ezgzip"
+dev-repo: "git+https://github.com/hcarty/ezgzip.git"
+bug-reports: "https://github.com/hcarty/ezgzip/issues"
+doc: "https://hcarty.github.io/ezgzip/ezgzip/"
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+  ["dune" "build" "-p" name "-j" jobs] {with-doc}
+]
+depends: [
+  "alcotest" {with-test & >= "0.8.1"}
+  "astring"
+  "benchmark" {with-test & >= "1.4"}
+  "dune" {>= "1.0"}
+  "ocplib-endian"
+  "odoc" {with-doc & >= "1.1.1"}
+  "qcheck" {with-test & >= "0.7"}
+  "rresult"
+  "camlzip"
+  "ocaml" {>= "4.03.0"}
+]
+url {
+  src:
+    "https://github.com/hcarty/ezgzip/releases/download/v0.2.2/ezgzip-v0.2.2.tbz"
+  checksum: [
+    "sha256=96fc2ab2daf4c8b0f2ffa10b00f94e02d2e2ac20061e31d7032e6136424e1678"
+    "sha512=a4c5a8978353b8796c88a800d448fb1f2e7963174cdd1060a4322a1839e1bde05cbcfa30973e11a27bbcaa2e0e5a4589589192160123bf5ca181d951f10ad2fb"
+  ]
+}
